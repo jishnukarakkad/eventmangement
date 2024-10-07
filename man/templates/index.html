@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Home</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Enable vertical stacking of elements */
+        }
+        /* Background Image and Dark Overlay */
+        .bg {
+            background-image: url('static/images/bg.jpg');
+            flex: 1; /* Allow this section to grow and fill the available space */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: rgb(255, 255, 255);
+            padding-top: 80px; /* Space for the header */
+            position: relative; /* Needed for the overlay */
+        }
+        /* Dark overlay with reduced opacity */
+        .bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* 30% opacity */
+            z-index: 1;
+        }
+        /* Header with Navigation Buttons */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center; /* Vertically center items */
+            padding: 10px 20px;
+            z-index: 1000;
+            box-sizing: border-box;
+            justify-content: space-between; /* Space between logo and buttons */
+        }
+        /* Logo section */
+        .logo-side {
+            width: 120px; /* Adjust the size as needed */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 80px; /* Set a maximum height for better alignment */
+            z-index: 1000; /* Ensure the logo stays on top */
+        }
+        /* Navigation Links */
+        .header a {
+            display: inline-block;
+            background-color: #000; /* Button background color */
+            color: #fff; /* Text color */
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .header a:hover {
+            background-color: #444; /* Darker on hover */
+        }
+
+        /* Admin Button Styling (Top Right) */
+        .admin-btn {
+            background-color: #333; /* Dark background */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: auto; /* Push the admin button to the right */
+        }
+        .admin-btn:hover {
+            background-color: #555; /* Darker on hover */
+        }
+
+        /* Main Content Text and Buttons */
+        .bg h1, .bg p, .nav-buttons {
+            z-index: 2; /* Place text and buttons above the overlay */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Subtle text shadow */
+        }
+        .nav-buttons {
+            margin-top: 20px; /* Space from header */
+        }
+        .nav-buttons a {
+            display: inline-block;
+            background-color: #000000; /* Button background color */
+            color: #fff; /* Text color */
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-buttons a:hover {
+            background-color: #444; /* Darker on hover */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 5px 0; /* Smaller padding for a compact look */
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            width: 100%;
+            margin-top: auto; /* Push the footer to the bottom */
+            font-size: 12px; /* Smaller text size */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header with Navigation Buttons -->
+<div class="header">
+    <!-- Logo Section -->
+    <div class="logo-side">
+        <img src="/static/images/logo.png" alt="JK Events Logo" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- Navigation Buttons (Right Side) -->
+    <div class="nav-links">
+        <!-- Profile Button -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">Profile</a>
+            <a href="{% url 'logout' %}">Logout</a> <!-- Logout button added here -->
+        {% else %}
+            <a href="{% url 'login' %}?next={% url 'profile' %}">Profile</a>
+            <a href="{% url 'login' %}">Login</a> <!-- Only show login button when not authenticated -->
+        {% endif %}
+        
+        <!-- Register button -->
+        <a href="{% url 'register' %}">Register</a>
+
+        <!-- Admin Button (Top Right) -->
+        <a href="{% url 'admin_panel' %}" class="admin-btn">Admin</a>
+    </div>
+</div>
+
+<!-- Main Background Section with Text and Navigation Buttons -->
+<div class="bg">
+    <h1>Welcome to JK Events</h1>
+    <p>TURNING MOMENTS INTO MEMORIES</p>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <a href="{% url 'events' %}">Events</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'bookings' %}">Bookings</a>
+        {% else %}
+            <a href="{% url 'login' %}?next={% url 'bookings' %}">Bookings</a>
+        {% endif %}
+        <a href="{% url 'contacts' %}">Contacts</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'feedback' %}">Feedback</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 JK Company. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

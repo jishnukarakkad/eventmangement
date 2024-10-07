@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Ticket</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .ticket { border: 1px solid #ddd; padding: 20px; border-radius: 10px; }
+        h1 { color: #278164; }
+    </style>
+</head>
+<body>
+
+<div class="ticket">
+    <h1>Your Event Ticket</h1>
+    <p><strong>Event:</strong> {{ booking.event.name }}</p>
+    <p><strong>Event Date:</strong> {{ booking.event.date }}</p>
+    <p><strong>Booking Date:</strong> {{ booking.created_at }}</p>
+    <p><strong>Name:</strong> {{ booking.name }}</p>
+    <p><strong>Contact:</strong> {{ booking.contact }}</p>
+</div>
+
+</body>
+</html>

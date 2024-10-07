@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .total-price {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #28a745;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none; /* Remove underline from link */
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Booking Confirmation</h1>
+</header>
+
+<div class="container">
+    <p>Thank you for your booking, {{ booking.name }}!</p> <!-- Changed to display the user's name -->
+    <p>Your booking details:</p>
+    <ul>
+        <li><strong>Event:</strong> {{ booking.event.name }}</li>
+        <li><strong>Event Date:</strong> {{ booking.event.date }}</li> <!-- Ensure 'date' is the correct attribute -->
+        <li><strong>Location:</strong> {{ booking.event.location }}</li> <!-- Ensure 'location' is the correct attribute -->
+        <li><strong>Booking Date:</strong> {{ booking.booking_date }}</li>
+        <li><strong>Number of Tickets:</strong> {{ booking.number_of_attendees }}</li> <!-- Updated to match variable name -->
+        <li class="total-price"><strong>Total Price:</strong> ₹{{ total_price }}</li>
+    </ul>
+    <p>A confirmation email has been sent to {{ user_email }}.</p>
+    
+    <!-- Back to Home Button -->
+    <a href="{% url 'index' %}" class="back-button">Back to Home</a> <!-- Link to the index page -->
+</div>
+
+<footer>
+    <p>&copy; 2024 JK Events. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

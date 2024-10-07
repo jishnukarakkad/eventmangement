@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Event</title>
+</head>
+<body>
+    <h1>Create a New Event</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders form fields -->
+        <button type="submit">Create Event</button>
+    </form>
+    <a href="{% url 'event_detail' %}">Back to Events</a>
+</body>
+</html>

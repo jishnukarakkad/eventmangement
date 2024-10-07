@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Feedback</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;  /* Light gray background */
+            color: #343a40;  /* Dark gray text for better contrast */
+        }
+
+        h1 {
+            color: #007bff;  /* Bootstrap primary color */
+            text-align: center;  /* Center the title */
+            margin-bottom: 30px;  /* Space below the heading */
+            font-size: 2.5em;  /* Increase font size */
+        }
+
+        .feedback-container {
+            max-width: 800px;  /* Limit max width for better readability */
+            margin: 0 auto;  /* Center the container */
+            display: flex;  /* Use flexbox for layout */
+            flex-direction: column;  /* Stack items vertically */
+            gap: 20px;  /* Space between feedback items */
+        }
+
+        .feedback-card {
+            background-color: #ffffff;  /* White background for each feedback */
+            border-radius: 8px;  /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Shadow for depth */
+            padding: 20px;  /* Padding inside each feedback card */
+        }
+
+        strong {
+            color: #007bff;  /* Color for the name */
+            font-size: 1.2em;  /* Slightly larger font for names */
+        }
+
+        small {
+            display: block;  /* Make the submission date stand out */
+            margin-top: 10px;  /* Space above the date */
+            color: #6c757d;  /* Bootstrap secondary color for date */
+            font-size: 0.9em;  /* Slightly smaller font */
+        }
+
+        p {
+            margin: 10px 0 0;  /* Space above the feedback text */
+            line-height: 1.6;  /* Improve line spacing for readability */
+            color: #495057;  /* Darker color for feedback text */
+        }
+
+        .no-feedback {
+            text-align: center;  /* Center align no feedback message */
+            font-size: 1.5em;  /* Increase font size */
+            color: #6c757d;  /* Lighter color for contrast */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;  /* Smaller font size for mobile */
+            }
+
+            .feedback-card {
+                padding: 15px;  /* Less padding on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>All Feedback</h1>
+<div class="feedback-container">
+    {% for feedback in feedback_list %}
+    <div class="feedback-card">
+        <strong>{{ feedback.name }}</strong> ({{ feedback.email }}) said:
+        <p>{{ feedback.feedback }}</p>  <!-- Corrected field name -->
+        <small>Submitted on: {{ feedback.submitted_at }}</small>
+    </div>
+    {% empty %}
+        <div class="no-feedback">No feedback submitted yet.</div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

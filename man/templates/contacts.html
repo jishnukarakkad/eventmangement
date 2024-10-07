@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Get in Touch</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #34495e;
+        }
+
+        .contact-info {
+            margin-bottom: 25px;
+            padding: 10px;
+            background-color: #e7f2fa;
+            border-left: 5px solid #2980b9;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #2980b9;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 18px;
+            font-size: 16px;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 style="color: white;">Get in Touch</h1> <!-- Changed color to white -->
+</header>
+
+<div class="container">
+    <div class="contact-info">
+        <h2>Our Contact Details</h2>
+        <p><strong>Address:</strong> 456 Elm Street, Anycity, AC 67890</p>
+        <p><strong>Phone:</strong> 0423-5678910, 9495949696,9605389409</p>
+        <p><strong>Email:</strong> JKevents@gmail.com</p>
+    </div>
+
+    <h2>Send Us Your Message</h2>
+    <form action="/submit_contact/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+       
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="contactnumber" placeholder="Contact Number" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        {{ form.contact_number }}
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 JK Events. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-image: url('/static/images/bg3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: #ecf0f1;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header img {
+            width: 150px; 
+            margin-bottom: 10px;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+        h2, h3, h4, p {
+            color: white; /* Change text color to white */
+        }
+        .event-selection {
+            margin-top: 20px;
+            width: 80%;
+            margin: 30px auto;
+        }
+        .event-option {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .event-details {
+            background-color: transparent; 
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .images-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .images-container img {
+            width: 100%;
+            max-width: 400px; 
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .event-selection {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="/static/images/logo.png" alt="Logo">
+    <h1>Events</h1>
+</header>
+
+<main>
+    <div class="event-selection">
+        <h2>Events That We Organize</h2>
+        
+        <!-- Concert Event Option -->
+        <div class="event-option">
+            <h3>Concerts</h3>
+            <div class="images-container">
+                <img src="../static/images/con1.jpeg" alt="Concert Event Image 1">
+                <img src="../static/images/con2.jpeg" alt="Concert Event Image 2">
+            </div>
+            <p>Join us for an unforgettable night of music at our annual concert featuring a lineup of talented artists from various genres. Whether you’re a fan of rock, pop, or classical, there’s something for everyone. Enjoy live performances, engage with fellow music lovers, and create lasting memories.</p>
+        </div>
+
+        <!-- Art Exhibition Option -->
+        <div class="event-option">
+            <h3>Art Exhibition</h3>
+            <div class="images-container">
+                <img src="../static/images/art1.jpeg" alt="Art Exhibition Image 1">
+                <img src="../static/images/art2.jpeg" alt="Art Exhibition Image 2">
+            </div>
+            <p>Explore the creative minds of contemporary artists at our annual Art Exhibition. This event showcases a variety of artistic expressions, including painting, sculpture, and photography. Engage with artists, attend workshops, and enjoy a day immersed in culture and creativity.</p>
+        </div>
+
+        <!-- Corporate Event Option -->
+        <div class="event-option">
+            <h3>Corporate Events</h3>
+            <div class="images-container">
+                <img src="../static/images/cor1.jpeg" alt="Corporate Event Image 1">
+                <img src="../static/images/cor2.jpeg" alt="Corporate Event Image 2">
+            </div>
+            <p>Elevate your business with our Corporate Events designed for networking, team-building, and professional development. Our events feature industry leaders, engaging workshops, and opportunities to connect with like-minded professionals. Let’s create impactful experiences together!</p>
+        </div>
+
+        <!-- Football Event Option -->
+        <div class="event-option">
+            <h3>FOOTBALL</h3>
+            <div class="images-container">
+                <img src="../static/images/foot1.jpeg" alt="Sports Event Image 1">
+                <img src="../static/images/foot2.jpeg" alt="Sports Event Image 2">
+            </div>
+            <p>Experience the thrill of the game at our Football Events, where teams compete for glory on the field. Whether it’s a local league match or a prestigious tournament, fans can enjoy an electrifying atmosphere filled with cheers, rivalries, and sportsmanship. Join us and support your favorite team!</p>
+        </div>
+
+        <!-- Family Events Section -->
+        <div class="event-option">
+            <h3>Family Events</h3>
+            
+            <!-- Wedding Ceremony Option -->
+            <h4>Wedding Ceremony</h4>
+            <div class="images-container">
+                <img src="../static/images/mar1.jpg" alt="Wedding Ceremony Image 1">
+                <img src="../static/images/mar2.jpg" alt="Wedding Ceremony Image 2">
+            </div>
+            <p>A wedding is a ceremonial event where two individuals come together in a legally recognized union. It often involves various traditions and rituals, including exchanging vows, rings, and typically celebrating with family and friends. Weddings can vary widely in style, size, and cultural significance, ranging from intimate ceremonies to grand celebrations.</p>
+            
+            <!-- Birthday Party Option -->
+            <h4>Birthday Party</h4>
+            <div class="images-container">
+                <img src="../static/images/bir1.jpg" alt="Birthday Party Image 1">
+                <img src="../static/images/bir2.jpg" alt="Birthday Party Image 2">
+            </div>
+            <p>A birthday celebration marks the anniversary of a person’s birth. These events can be as simple as a small gathering with family or friends, or as elaborate as a themed party with decorations, games, and entertainment. Common elements include a birthday cake, candles, gifts, and activities that reflect the celebrant's interests.</p>
+            
+            <!-- Reception Event Option -->
+            <h4>Reception Event</h4>
+            <div class="images-container">
+                <img src="../static/images/rec1.jpg" alt="Reception Event Image 1">
+                <img src="../static/images/rec2.webp" alt="Reception Event Image 2">
+            </div>
+            <p>A reception is a formal gathering held after a ceremony, often in the context of weddings or other significant milestones. For weddings, the reception is where the newlyweds celebrate with their guests, typically featuring food, drinks, speeches, and dancing. Receptions can also occur after events like award ceremonies, anniversaries, or milestone birthdays, serving as a festive conclusion to the main event.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 JK Events. All rights reserved.</p>
+    <p><a href="{% url 'contacts' %}" style="color: #ecf0f1; text-decoration: none;">Contact Us</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .user-info {
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .user-info p {
+            font-size: 18px;
+            color: #495057;
+            margin: 10px 0;
+        }
+        .welcome-message {
+            font-size: 22px;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .bookings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .bookings-table th, .bookings-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        .bookings-table th {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .bookings-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .no-bookings {
+            text-align: center;
+            font-size: 18px;
+            color: #6c757d;
+            margin-top: 20px;
+        }
+        .logout-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #dc3545; /* Bootstrap Danger Color */
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .logout-button:hover {
+            background-color: #c82333; /* Darker Red */
+        }
+    </style>
+</head>
+<body>
+<!-- profile.html -->
+<div class="container">
+    <h1>Your Profile</h1>
+    
+    <div class="user-info">
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        
+    </div>
+
+   
+</div>
+
+    
+    
+    <h2>Your Bookings</h2>
+    {% if bookings %}
+        <table class="bookings-table">
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                    <tr>
+                        <td>{{ booking.event.name }}</td>
+                        <td>{{ booking.event.date }}</td>
+                        <td>{{ booking.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="no-bookings">You have no bookings yet.</p>
+    {% endif %}
+
+    <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+</div>
+
+</body>
+</html>

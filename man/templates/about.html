@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-image: url('/static/images/bg4.jpg'); /* Ensure this path is correct */
+            background-size: cover; /* Make the background cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent repeating the image */
+            background-position: center; /* Center the image */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Use flexbox */
+            flex-direction: column; /* Stack children vertically */
+            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+        }
+        header {
+            background-color: rgba(44, 62, 80, 0.8); /* Dark header color with transparency */
+            color: #ecf0f1;
+            padding: 10px 0; /* Reduced padding for a smaller header */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header img {
+            width: 120px; /* Adjust logo size */
+            margin-bottom: 5px; /* Spacing between logo and title */
+        }
+        header h1 {
+            margin: 0;
+            color: white; /* White title color */
+            font-size: 24px; /* Adjusted font size for smaller heading */
+        }
+        .container {
+            flex: auto; /* Allow the container to grow and fill available space */
+            width: 80%;
+            margin: 20px auto; /* Reduced margin to make the container smaller */
+            padding: 15px; /* Reduced padding */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for readability */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #34495e; /* Header color */
+        }
+        p {
+            color: #2c3e50; /* Text color */
+            line-height: 1.6; /* Line height for better readability */
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0; /* Reduced padding for a smaller footer */
+            background-color: #2c3e50; /* Footer color */
+            color: #ecf0f1;
+            font-size: 12px; /* Smaller font size */
+        }
+        footer a {
+            color: #ecf0f1; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+        footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .social-icons {
+            text-align: center; /* Center the icons */
+            margin-top: 20px; /* Space above the icons */
+        }
+        .social-icons img {
+            width: 40px; /* Icon size */
+            margin: 0 10px; /* Space between icons */
+            vertical-align: middle; /* Align icons vertically */
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="/static/images/logo.png" alt="Logo"> <!-- Ensure this path is correct for your logo -->
+    <h1>About Us</h1>
+</header>
+
+<div class="container">
+    <h2>Welcome to JK Events</h2>
+    <p>
+        At JK Events, we are dedicated to crafting unforgettable experiences for all your special occasions. Whether it’s a wedding, a birthday party, or a corporate event, our mission is to transform your vision into reality, ensuring that every detail is meticulously planned and executed.
+    </p>
+    <p>
+        Our team of experienced professionals is passionate about creating personalized events that reflect your unique style and preferences. We believe that every event is an opportunity to create lasting memories, and we strive to deliver excellence in every aspect of our service.
+    </p>
+    <p>
+        From the initial consultation to the final moments of your event, we work closely with you to understand your needs and exceed your expectations. Let us be a part of your journey in celebrating life’s milestones, bringing joy and happiness to you and your loved ones.
+    </p>
+    <p>Our services are available for both indoor and outdoor projects. We specialize in activities that take place inside and outside.</p>
+    <p>For more information, please contact us or fill out your details on the Contacts page. We will get back to you soon!</p>
+    
+    <!-- Social Media Icons Section -->
+    <div class="social-icons">
+        <a href="https://www.instagram.com/yourprofile" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+        </a>
+        <a href="https://wa.me/your_whatsapp_number" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+        </a>
+        <a href="https://www.youtube.com/yourchannel" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo">
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 JK Events. All rights reserved.</p>
+    <p><a href="{% url 'contacts' %}">Contact Us</a></p>
+</footer>
+
+</body>
+</html>
